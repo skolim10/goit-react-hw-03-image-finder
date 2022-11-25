@@ -21,15 +21,15 @@ export class App extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     this.setState({ isLoading: true });
-    const inputSearch = e.target.elements.inputSearch;
-    if (inputSearch.value.trim() === '') {
+    const inputForSearch = e.target.elements.inputForSearch;
+    if (inputForSearch.value.trim() === '') {
       return;
     }
-    const response = await fetchImages(inputSearch.value, 1);
+    const response = await fetchImages(inputForSearch.value, 1);
     this.setState({
       images: response,
       isLoading: false,
-      currentSearch: inputSearch.value,
+      currentSearch: inputForSearch.value,
       pageNr: 1,
     });
   };
